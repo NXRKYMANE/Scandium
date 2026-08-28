@@ -1,0 +1,10 @@
+# Build output (rules without a leading slash match at any depth)
+bin/
+obj/
+Publish/
+target/
+.vs/
+*.user
+.vscode/
+.idea/
+.build/

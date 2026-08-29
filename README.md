@@ -58,12 +58,14 @@ Scandium/
 ├── Publish/                         # Build output (published exe and installer)
 ├── .github/                         # GitHub community templates (issues / PR)
 ├── app.manifest                     # UAC administrator manifest + DPI awareness
-├── BUILD.ps1                        # One-click build script (compile → publish → package)
+├── .release.ps1                     # One-click build script (compile → publish → package)
 ├── .gitattributes                   # Git language stats exclusion (installer / peripheral scripts)
-├── CLAUDE.md                        # Project rules (AI collaboration conventions)
+├── CLAUDE.md                        # AI assistant rules
+├── CHANGELOG.md                     # Development log / version history
 ├── CODE_OF_CONDUCT.md               # Code of Conduct
 ├── CONTRIBUTING.md                  # Contribution guide
-├── LICENSE
+├── LICENSE                          # License (Apache-2.0)
+├── NOTICE                           # Attribution notice (copyright + third-party)
 ├── README.md                        # English documentation
 ├── README_CN.md                     # Chinese documentation
 └── SECURITY.md                      # Security policy
@@ -85,7 +87,7 @@ Scandium/
 Run from the project root:
 
 ```bash
-.\BUILD.ps1
+.\.release.ps1
 ```
 
 The publish output is a single native executable: `scandium_svc.exe` (Rust, no runtime dependencies).
@@ -133,4 +135,4 @@ If this project helps you, feel free to [sponsor us](https://ifdian.net/a/NXRKYM
 
 ## License
 
-Copyright © 2026 NXRKYMANE SOFTWARE
+Licensed under the Apache License, Version 2.0 — see [LICENSE](LICENSE) and [NOTICE](NOTICE) for details.

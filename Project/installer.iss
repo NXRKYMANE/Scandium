@@ -2,7 +2,7 @@
 ; 功能：双语（默认跟随系统语言）/ 版本比较 / Osmium 服务注册与卸载 / 不创建开始菜单快捷方式
 
 #define MyAppName "Scandium"
-#define MyAppVersion "5.0.0"
+#define MyAppVersion "5.0.1"
 #define MyAppPublisher "Copyright (C) 2026 NXRKYMANE SOFTWARE"
 #define MyAppURL "https://github.com/NXRKYMANE/Scandium"
 #define MyAppExeName "scandium_svc.exe"

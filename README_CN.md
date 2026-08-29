@@ -58,12 +58,14 @@ Scandium/
 ├── Publish/                         # 构建产物（发布 exe 与安装包）
 ├── .github/                         # GitHub 社区模板（Issue / PR）
 ├── app.manifest                     # UAC 管理员清单 + DPI 感知
-├── BUILD.ps1                        # 一键构建脚本（编译 → 发布 → 打包）
+├── .release.ps1                     # 一键构建脚本（编译 → 发布 → 打包）
 ├── .gitattributes                   # Git 语言统计排除（安装脚本 / 周边脚本）
-├── CLAUDE.md                        # 项目规则（AI 协作约定）
+├── CLAUDE.md                        # AI 助手规则
+├── CHANGELOG.md                     # 开发记录/版本历史
 ├── CODE_OF_CONDUCT.md               # 行为准则
 ├── CONTRIBUTING.md                  # 贡献指南
-├── LICENSE
+├── LICENSE                          # 许可证（Apache-2.0）
+├── NOTICE                           # 版权归属与第三方组件声明
 ├── README.md                        # 英文文档
 ├── README_CN.md                     # 中文文档
 └── SECURITY.md                      # 安全政策
@@ -85,7 +87,7 @@ Scandium/
 在项目根目录执行：
 
 ```bash
-.\BUILD.ps1
+.\.release.ps1
 ```
 
 发布产物为单个原生可执行文件：`scandium_svc.exe`（Rust，无运行时依赖）。
@@ -133,4 +135,4 @@ ISCC.exe Project\installer.iss
 
 ## 许可证
 
-Copyright © 2026 NXRKYMANE SOFTWARE
+本项目基于 Apache License 2.0 开源——详见 [LICENSE](LICENSE) 与 [NOTICE](NOTICE)。

@@ -1,7 +1,8 @@
 [package]
 name = "scandium"
-version = "5.0.0"
+version = "5.0.1"
 edition = "2024"
+license = "Apache-2.0"
 
 [[bin]]
 name = "scandium_svc"

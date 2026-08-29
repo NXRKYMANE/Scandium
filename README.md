@@ -127,7 +127,35 @@ For manual deployment:
 
 ## Disclaimer
 
-**This project is essentially a rather trivial utility and cannot be guaranteed to work on all computers. Flushing process working sets can temporarily slow down disk activity while paged memory is swapped back; if there is no noticeable improvement or the overhead increases, remove this service immediately.**
+> [!WARNING]
+> **This project may cause high pulsed resource usage on some older hardware. Please make sure your computer uses DDR4/DDR5 memory and an SSD/NVMe drive; if the system feels noticeably laggy or even freezes while the service is running, uninstall this service as soon as possible.**
+
+## Development History
+
+> [!NOTE]
+> The project is named **Scandium** — I hoped it could make a computer's memory more "durable"; it has proven stable and effective on all three of my machines.
+>
+> The abbreviation **Scan** also means "to scan", which echoes the idea of scanning memory and cleaning it.
+
+> Back in seventh grade (around 2022, when GPT-3 had just come out), I got really interested in Python, and my parents signed me up for an online Python course. At the time I was using a three-to-four-year-old computer with only 8GB of RAM — even playing Minecraft Java Edition smoothly kept crashing.
+>
+> At first I couldn't afford a genuine MC account, so I learned about a launcher called HMCL that could play MC, but downloading mods was painfully slow, and I later switched to the PCL2 launcher — where I accidentally discovered that PCL2's memory cleaner worked surprisingly well: a single run could cut memory usage by half, though it bounced back after a few minutes. Since I had a decent grasp of Python, I wrote a script to run PCL2's cleaner a fixed number of times per minute.
+>
+> Later, to automate it and make it distributable, I hit countless pitfalls. All I wanted at first was auto-start on boot: I put a shortcut into the Start Menu startup folder, but it kept prompting "run as administrator"; repackaging it with UAC didn't help either.
+>
+> That frustrated me a lot. So I kept digging and learned about the "Windows service" mechanism — writing my Python program as a Win32 service should bypass the problem, right? It turned out the service never ran properly after PyInstaller packaging. After a ton of research I found out that PyInstaller misses the `win32timezone` module; adding it manually still wouldn't run. There was no way around it — Python's way of calling system APIs was just too painful.
+>
+> So I started wondering whether anything could bypass Python's inherent limitations. Pretty quickly I found the WinSW project on GitHub, and used it to successfully wrap my exe as a system service — the prototype of this project was born. I even founded a studio and named the project WRCS (Windows RAM Clean Service).
+>
+> But new problems followed: the installer tool I used back then was Advanced Installer — registering, starting and uninstalling services through WinSW was error-prone, administrator permission handling was messy, and installers I built would even run fine on my machine yet fail mysteriously on another.
+>
+> That left me lost again. By then I was in ninth grade, and preparing for the high school entrance exam forced me to put it aside.
+>
+> To live up to the principles of "native, high-performance, easy to distribute, lightweight", during the summer of 2025 I learned the basics of C# and Rust, which finally let me call system APIs and DLLs seamlessly, and with the help of AI I wrote the first genuinely usable version of this project, named Hydride (as in hydrogenation) — meaning to make the computer "lighter".
+>
+> This year, I deeply reworked WinSW into a superset project called Osmium (formerly Silanes, and even earlier WSF — Windows Service Framework, a Python glue project around WinSW). It became very powerful and stable.
+>
+> Hydride was then heavily reworked to integrate with Osmium natively: it broke away from PCL2, achieved an equivalent yet intelligent native automation service, and was renamed to today's Scandium. The installer is now built with Inno Setup — smaller and far more extensible.
 
 ## Sponsor
 

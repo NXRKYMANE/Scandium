@@ -33,10 +33,10 @@
 
 服务进程与 Osmium 宿主均运行在任务管理器"效率模式"（ProcessPowerThrottling）下，按 CPU 负载自动开关：
 
-| 组件                        | 配置项                  | 行为                                              |
-| --------------------------- | ----------------------- | ------------------------------------------------- |
+| 组件                      | 配置项                  | 行为                                              |
+| ------------------------- | ----------------------- | ------------------------------------------------- |
 | 服务 (`scandium_svc.exe`) | `eco_qos = "auto"`      | 空闲（CPU < 10%）进入效率模式，繁忙（> 30%）退出  |
-| 宿主 (`os.exe`)             | `host_eco_qos = "auto"` | 空闲（CPU < 5%）进入，宿主或服务繁忙（> 20%）退出 |
+| 宿主 (`os.exe`)           | `host_eco_qos = "auto"` | 空闲（CPU < 5%）进入，宿主或服务繁忙（> 20%）退出 |
 
 调整阈值：修改已部署配置 `ProgramData\Osmium\svcs\scandium_svc.osiml`（`eco_qos_idle_cpu_pct` / `eco_qos_busy_cpu_pct` / `host_eco_qos_*` 字段），然后执行 `os.exe --refresh scandium_svc`。
 

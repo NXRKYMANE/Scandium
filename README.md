@@ -33,10 +33,10 @@ Built in high-performance **Rust** as a single native binary (~116 KB, UPX-packe
 
 Both the service process and the Osmium host run in Task Manager "efficiency mode" (ProcessPowerThrottling), switching on/off automatically by CPU load:
 
-| Component                      | Setting                 | Behavior                                                                          |
-| ------------------------------ | ----------------------- | --------------------------------------------------------------------------------- |
+| Component                    | Setting                 | Behavior                                                                          |
+| ---------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Service (`scandium_svc.exe`) | `eco_qos = "auto"`      | Enters efficiency mode when idle (CPU < 10%), exits when busy (> 30%)             |
-| Host (`os.exe`)                | `host_eco_qos = "auto"` | Enters when idle (CPU < 5%), exits when the host or the service gets busy (> 20%) |
+| Host (`os.exe`)              | `host_eco_qos = "auto"` | Enters when idle (CPU < 5%), exits when the host or the service gets busy (> 20%) |
 
 Tuning thresholds: edit the deployed config at `ProgramData\Osmium\svcs\scandium_svc.osiml` (fields `eco_qos_idle_cpu_pct` / `eco_qos_busy_cpu_pct` / `host_eco_qos_*`), then `os.exe --refresh scandium_svc`.
 
